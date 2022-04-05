@@ -2,6 +2,11 @@
 
 Associate exercises for Eficode's "Testing Mastery" training. 
 
+This exercise uses a C# backend with a React Typescript frontend. Therefore you need: 
+
+* NodeJS: https://nodejs.org/en/
+* Visual studio: https://visualstudio.microsoft.com/ 
+
 ## Unit testing
 
 This exercise is about writing good tests. Provided are nine different versions of the same function. They all look natural, but all have bugs, except for one. Sort of a Where's Waldo but with bugs. The function has a fairly simple purpose:
