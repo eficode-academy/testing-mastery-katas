@@ -6,6 +6,9 @@ This exercise uses a C# backend with a React Typescript frontend. Therefore you 
 
 * NodeJS: https://nodejs.org/en/
 * Visual studio: https://visualstudio.microsoft.com/ 
+  - .net v6.0
+  - ASP.net
+  - NodeJS
 
 ## Unit testing
 
@@ -28,11 +31,16 @@ Implement your tests in BackendTests/SpecificTestsExercise.cs. Remember the goal
 
 ## Test doubles
 
-Good test doubles are the difference between locking the structure or the behavior. We want the behavior to remain the same even when we refactor the structure. Therefore our tests should only `new` one real class. All other `new`s should be test doubles. Finish and fix the test case in `BackendTests/TestDoublesExercise.cs`. You may need to make new classes and interfaces.
+Good test doubles are the difference between locking the structure or the behavior. We want the behavior to remain the same even when we refactor the structure. Therefore our tests should only `new` one real class. All other `new`s should be test doubles. Finish and fix the test case in `BackendTests/TestDoublesExercise.cs`. You may need to make new classes and interfaces. 
+
+1. Begin by implementing SSORegistry.
+2. Fix the unit test, while implementing the nessasary test doubles.
 
 ## Contract testing
 
-Sometimes a change to a 3rd party service can crash our application. To quickly detect when this happens we use contract tests. These simply make a call to the external service and verify that the response have the correct structure. Make a contract test for the dad-joke service, in the file `BackendTests/ContractTests.cs`.
+Sometimes a change to a 3rd party service can crash our application. To quickly detect when this happens we use contract tests. These simply make a call to the external service and verify that the response have the correct structure. 
+
+1. Make a contract test for the dad-joke service, in the file `BackendTests/ContractTests.cs`.
 
 <details>
   <summary>Help!</summary>
@@ -42,7 +50,9 @@ Take inspiration from `Backend/Outgoing/DadJoke.cs`.
 
 ## UI testing
 
-Some functionality is required for our application to be usable. To verify this we can use UI testing. UI tests make a virtual rendering of our app, so we can query and check elements. Make a UI test to verify that our UI contains a link that says "learn react".
+Some functionality is required for our application to be usable. To verify this we can use UI testing. UI tests make a virtual rendering of our app, so we can query and check elements. 
+
+1. Make a UI test to verify that our UI contains a link that says "learn react".
 
 <details>
   <summary>Help!</summary>
@@ -62,6 +72,8 @@ test("renders learn react link", () => {
 
 </details>
 
+2. Can you make the test fail?
+
 ## Approval testing
 
 We currently have no tests of our custom `FunnyComponent`. To quickly -- but shallowly -- remedy this we can use approval testing. We first install a library:
@@ -69,6 +81,7 @@ We currently have no tests of our custom `FunnyComponent`. To quickly -- but sha
 ```
 npm install react-test-renderer
 npm install @types/react-test-renderer
+npm install react-renderer-test@17.0.2
 ```
 
 Create a file called `FunnyComponent.test.tsx`, containing:
@@ -83,17 +96,17 @@ test("renders correctly", () => {
 });
 ```
 
-Inspect the snapshot. Can you make this test fail?
+1. Inspect the snapshot. Can you make this test fail?
 
 ## Coverage and mutation testing
 
 ### Test coverage
 
 Confidence is the fundamental reason we do testing. One method to assess how much confidence we should have in our test suite is to measure test coverage. Luckily this is trivial to do in most frameworks, including jest which our frontend is using. 
-Add a run configuration in `package.json`, for running the tests with the `--coverage` flag. Then use it to find the coverage of the two important files: 
-
-* App.tsx
-* FunnyComponent.tsx
+1. Add a run configuration in `package.json`, for running the tests with the `--coverage` flag. 
+2. Then use it to find the coverage of the two important files: 
+  * App.tsx
+  * FunnyComponent.tsx
 
 <details>
   <summary>Help!</summary>
@@ -133,14 +146,16 @@ We also configure it by creating a file called `stryker.conf.json`:
 }
 ```
 
-Now we can add another run configuration for it, with the command `stryker run`. What is the actual coverage of the two files?
-
-* App.tsx
-* FunnyComponent.tsx
+1. Now we can add another run configuration for it, with the command `stryker run`. 
+2. What is the actual coverage of the two files?
+  * App.tsx
+  * FunnyComponent.tsx
 
 ## Resilience testing
 
-If we want to increase the resilience of our application we need to inject chaos. The simplest way to do this is to force our application to fail occasionally. In this exercise we want to motivate retry-logic in the frontend. To achieve this make the `/Joke` endpoint fail 5% of the time.
+If we want to increase the resilience of our application we need to inject chaos. The simplest way to do this is to force our application to fail occasionally. In this exercise we want to motivate retry-logic in the frontend. 
+
+1. Make the `/Joke` endpoint fail 5% of the time.
 
 <details>
   <summary>Help!</summary>
