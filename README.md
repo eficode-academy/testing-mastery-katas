@@ -33,7 +33,7 @@ Implement your tests in BackendTests/SpecificTestsExercise.cs. Remember the goal
 
 Good test doubles are the difference between locking the structure or the behavior. We want the behavior to remain the same even when we refactor the structure. Therefore our tests should only `new` one real class. All other `new`s should be test doubles. Finish and fix the test case in `BackendTests/TestDoublesExercise.cs`. You may need to make new classes and interfaces. 
 
-1. Begin by implementing SSORegistry.
+1. Begin by creating a test double that implements SSORegistry, and use that in the test.
 2. Fix the unit test, while implementing the nessasary test doubles.
 
 ## Contract testing
