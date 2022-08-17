@@ -12,7 +12,16 @@ namespace UnitTests
     {
         [DataTestMethod]
         [DynamicData(nameof(Data), DynamicDataSourceType.Property)]
-        public void DemoTest(ArrayOperations implementation)
+        public void PositiveTest1(ArrayOperations implementation)
+        {
+            var input = new float[] { 1f, 2f, 3f };
+            var output = implementation.SubtractAverage(input);
+            CollectionAssert.AreEqual(output, new float[] { -1f, 0f, 1f });
+        }
+
+        [DataTestMethod]
+        [DynamicData(nameof(Data), DynamicDataSourceType.Property)]
+        public void NegativeTest1(ArrayOperations implementation)
         {
             var input = new float[] { };
             try
